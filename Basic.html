@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/jquery.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.min.js"></script>
+    <script src="js/main.js"></script>      
+    <!--
+        注意執行順序，在Dom未載入完成時，此段Script會因為找不到div.box而無作用
+        解决方案一:使用Jquery的$(document ).ready() https://api.jquery.com/ready/
+        解决方案二:移至Body結尾的下方，確保Dom元素載入後才執行
+    -->
+</head>
+<body>    
+    <div id="sample1" class="box"></div>
+</body>
+<!--解决方案二的Body結尾處-->
+</html>
