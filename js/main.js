@@ -2,6 +2,7 @@
 $(function () {
     $("#sample1").velocity(
         {
-            width: '300px'
+            width: '300px',
+            height : '300px'
         });
 })
