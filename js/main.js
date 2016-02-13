@@ -1,32 +1,24 @@
 ﻿//$(document).ready(function(){....})可省略document縮寫下如下範例$(function(){...})
 $(function () {
-    $("#sample1").velocity(
+    /*改用RunSequence的方式解决過多的巢狀Complete方法，增加可讀性*/
+    //定義動畫參數
+    var seq = [
         {
-            width: '300px',
+            elements: $("#sample1"),
+            properties: { width: "300px" },
+            options: { duration: 1000 }
         },
         {
-            //完成全部動畫需秏費1000豪秒(1秒)
-            duration: 1000,
-            //sample1完成動畫才會執行complete方法，因此sample2就不用特定指定delay來達到連續動畫的效果
-            complete: function () {
-                $("#sample2").velocity(
-                {
-                    width: '300px',
-                },
-                {
-                    //完成全部動畫需秏費500豪秒(0.5秒)
-                    duration: 500,
-                    complete: function () {
-                        $("#sample3").velocity(
-                       {
-                           width: '300px',
-                       },
-                       {
-                           //完成全部動畫需秏費500豪秒(0.5秒)
-                           duration: 500
-                       });
-                    }
-                });
-            }
-        });
+            elements: $("#sample2"),
+            properties: { width: "300px" },
+            options: { duration: 500 }
+        },
+        {
+            elements: $("#sample3"),
+            properties: { width: "300px" },
+            options: { duration: 500 }
+        }
+    ];
+    //執行
+    $.Velocity.RunSequence(seq);
 })
