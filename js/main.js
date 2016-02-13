@@ -15,7 +15,17 @@ $(function () {
                 },
                 {
                     //完成全部動畫需秏費500豪秒(0.5秒)
-                    duration: 500
+                    duration: 500,
+                    complete: function () {
+                        $("#sample3").velocity(
+                       {
+                           width: '300px',
+                       },
+                       {
+                           //完成全部動畫需秏費500豪秒(0.5秒)
+                           duration: 500
+                       });
+                    }
                 });
             }
         });
